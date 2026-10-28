@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>สำหรับเธอ — วันครบรอบ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Sans+Thai:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=lock1" />
+  </head>
+  <body>
+    <div class="petal-layer" aria-hidden="true" id="petals"></div>
+
+    <section class="lock-screen" id="lockScreen">
+      <div class="door door-left" aria-hidden="true">
+        <span class="door-shine"></span>
+        <span class="door-handle door-handle-left"></span>
+      </div>
+      <div class="door door-right" aria-hidden="true">
+        <span class="door-shine"></span>
+        <span class="door-handle door-handle-right"></span>
+      </div>
+      <div class="lock-panel" id="lockPanel">
+        <p class="lock-kicker">กรอกรหัสผ่านซะดีๆ</p>
+        <h1 class="lock-title">รหัสคืออะไรน้าา</h1>
+        <p class="lock-hint" id="lockHint"></p>
+        <div class="pin-dots" id="pinDots" aria-hidden="true"></div>
+        <div class="pin-pad" id="pinPad"></div>
+        <p class="pin-feedback" id="pinFeedback" hidden></p>
+      </div>
+    </section>
+
+    <section class="gate" id="gate" hidden>
+      <div class="gate-atmosphere" aria-hidden="true">
+        <span class="gate-glow gate-glow-a"></span>
+        <span class="gate-glow gate-glow-b"></span>
+        <span class="gate-glow gate-glow-c"></span>
+        <div class="gate-stars" id="gateStars"></div>
+        <div class="gate-grain"></div>
+      </div>
+      <div class="gate-content">
+        <p class="gate-kicker">ก๊อกๆ มีอะไรมาส่งงงง</p>
+        <h1 class="gate-title">A GIFT<br />FOR<br />JULIE </h1>
+        <p class="gate-sub">เปิดดูไหมม</p>
+        <button class="seal" id="openSeal" type="button" aria-label="เปิดจดหมาย">
+          <span class="seal-ring"></span>
+          <svg class="seal-photo" viewBox="0 0 100 100" aria-hidden="true">
+            <defs>
+              <clipPath id="sealHeartClip">
+                <path
+                  d="M50 88 C22 68 6 50 14 32 C20 18 36 14 50 30 C64 14 80 18 86 32 C94 50 78 68 50 88 Z"
+                />
+              </clipPath>
+            </defs>
+            <path
+              class="seal-photo-fill"
+              d="M50 88 C22 68 6 50 14 32 C20 18 36 14 50 30 C64 14 80 18 86 32 C94 50 78 68 50 88 Z"
+            />
+            <image
+              id="sealPhotoImg"
+              href=""
+              width="100"
+              height="100"
+              preserveAspectRatio="xMidYMid slice"
+              clip-path="url(#sealHeartClip)"
+            />
+            <path
+              class="seal-photo-frame"
+              d="M50 88 C22 68 6 50 14 32 C20 18 36 14 50 30 C64 14 80 18 86 32 C94 50 78 68 50 88 Z"
+              fill="none"
+            />
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <main class="letter-world" id="world" hidden>
+      <header class="hero">
+        <p class="eyebrow reveal" id="eyebrow" data-reveal="0">วันครบรอบของเรา</p>
+        <h2 class="names reveal" data-reveal="1">
+          <span id="herName">เธอ</span>
+          <i>&amp;</i>
+          <span id="myName">เอ</span>
+        </h2>
+        <p class="hero-date reveal" id="heroDate" data-reveal="2">—</p>
+        <p class="hero-line reveal" id="heroLine" data-reveal="3">ขอบคุณที่เลือกเดินมาด้วยกัน</p>
+        <div class="stats reveal" data-reveal="4">
+          <div>
+            <strong id="daysTogether">0</strong>
+            <span>วันที่อยู่ด้วยกัน</span>
+          </div>
+          <div>
+            <strong>∞</strong>
+            <span>ครั้งที่คิดถึง</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="block letter reveal-section">
+        <h3>อะแฮ่มมม</h3>
+        <article id="letterBody"></article>
+      </section>
+
+      <section class="block gallery reveal-section">
+        <h3>มีเกมให้เล่นนนนน</h3>
+        <p class="game-progress">ปลดล็อกแล้ว <strong id="unlockedCount">0</strong> จาก <span id="photoTotal">0</span> รูป · กดๆดู เล่นเกมกัน</p>
+        <div class="polaroids" id="polaroids"></div>
+      </section>
+
+      <section class="block timeline reveal-section">
+        <h3>แถม</h3>
+        <ol id="timeline"></ol>
+      </section>
+
+      <footer class="finale reveal-section">
+        <p class="finale-kicker">และจากนี้ไป</p>
+        <h3 id="finaleTitle">ฉันยังอยากฉลองกับเธออีกหลายรอบ</h3>
+        <p id="finaleBody">สุขสันต์วันครบรอบนะคนเก่ง</p>
+        <button class="again" id="replay" type="button">เผื่ออยากเล่นใหม่</button>
+      </footer>
+    </main>
+
+    <div class="quiz-modal" id="quizModal" hidden>
+      <div class="quiz-sheet" role="dialog" aria-modal="true" aria-labelledby="quizQuestion">
+        <p class="quiz-kicker">มินิเกม · ข้อที่ <span id="quizIndex">1</span></p>
+        <h3 id="quizQuestion"></h3>
+        <div class="choices" id="quizChoices"></div>
+        <p class="quiz-feedback" id="quizFeedback" hidden></p>
+        <button class="quiz-close" id="quizClose" type="button">ไว้ก่อน</button>
+      </div>
+    </div>
+
+    <div class="photo-view" id="photoView" hidden>
+      <div class="photo-view-sheet" role="dialog" aria-modal="true" aria-labelledby="photoViewTitle">
+        <button class="photo-view-close" id="photoViewClose" type="button" aria-label="ปิด">×</button>
+        <div class="photo-view-frame">
+          <img id="photoViewImg" alt="" />
+        </div>
+        <h3 id="photoViewTitle"></h3>
+        <p id="photoViewNote"></p>
+        <button class="photo-view-done" id="photoViewDone" type="button">ปิด</button>
+      </div>
+    </div>
+
+    <div class="song-picker" id="songPicker" hidden>
+      <div class="song-sheet" role="dialog" aria-modal="true" aria-labelledby="songPickerTitle">
+        <p class="song-kicker" id="songPickerKicker">ก่อนเปิดจดหมาย</p>
+        <h3 id="songPickerTitle">เลือกเพลงประกอบ</h3>
+        <div class="song-carousel">
+          <button class="song-nav" id="songPrev" type="button" aria-label="เพลงก่อนหน้า">‹</button>
+          <div class="song-viewport" id="songViewport">
+            <div class="song-track" id="songTrack"></div>
+          </div>
+          <button class="song-nav" id="songNext" type="button" aria-label="เพลงถัดไป">›</button>
+        </div>
+        <p class="song-hint">เลือกเพลงได้นะะ เปิดเสียงด้วย</p>
+        <button class="song-confirm" id="songConfirm" type="button">เปิดด้วยเพลงนี้</button>
+      </div>
+    </div>
+
+    <div class="popup-layer" id="popups" aria-hidden="true"></div>
+
+    <div class="now-playing" id="nowPlaying" hidden>
+      <button class="now-disc" id="nowPlayToggle" type="button" aria-label="เล่นหรือหยุดเพลง">
+        <span class="now-disc-art" aria-hidden="true"></span>
+        <span class="now-disc-icon" id="nowPlayIcon">❚❚</span>
+      </button>
+      <div class="now-panel">
+        <p class="now-label">กำลังเล่น</p>
+        <strong id="nowTitle">—</strong>
+        <span id="nowArtist"></span>
+        <div class="now-actions">
+          <button type="button" id="nowPrev" aria-label="เพลงก่อนหน้า">‹</button>
+          <button type="button" id="nowChange">เปลี่ยน</button>
+          <button type="button" id="nowNext" aria-label="เพลงถัดไป">›</button>
+        </div>
+      </div>
+    </div>
+    <audio id="bgm"></audio>
+
+    <script src="config.js?v=lock1"></script>
+    <script src="app.js?v=lock1"></script>
+  </body>
+</html>
